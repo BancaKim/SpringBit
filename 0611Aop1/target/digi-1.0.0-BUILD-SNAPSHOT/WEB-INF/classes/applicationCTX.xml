@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<bean id="logAop" class="com.kbfg.digi.LogAop"/>
+	
+	<aop:config>
+		<aop:aspect id="logger" ref="logAop">  <!--공통기능  -->
+			<aop:pointcut id="publicM" expression="within(com.kbfg.digi.*)"/>  <!--실제범위  -->
+			<aop:around pointcut-ref="publicM" method="beforeAdvice"/>  <!-- loggerAOP 매서드 -->
+		</aop:aspect>
+
+		<aop:aspect id="logger" ref="logAop">  <!--공통기능  -->
+			<aop:pointcut id="publicM" expression="within(com.kbfg.digi.*)"/>  <!--실제범위  -->
+			<aop:before pointcut-ref="publicM" method="afterReturningAdvice"/>  <!-- loggerAOP 매서드 -->
+		</aop:aspect>
+<!-- 
+		<aop:aspect id="logger" ref="logAop">  공통기능 
+			<aop:pointcut id="publicM" expression="within(com.kbfg.digi.*)"/>  실제범위 
+			<aop:after-returning pointcut-ref="publicM" method="afterReturningAdvice"/>  loggerAOP 매서드
+		</aop:aspect>
+ -->
+		<aop:aspect id="logger" ref="logAop">  <!--공통기능  -->
+			<aop:pointcut id="publicM" expression="within(com.kbfg.digi.*)"/>  <!--실제범위  -->
+			<aop:after-throwing pointcut-ref="publicM" method="afterThrowingAdvice"/>  <!-- loggerAOP 매서드 -->
+		</aop:aspect>
+
+		<aop:aspect id="logger" ref="logAop">  <!--공통기능  -->
+			<aop:pointcut id="publicM" expression="within(com.kbfg.digi.*)"/>  <!--실제범위  -->
+			<aop:after pointcut-ref="publicM" method="afterAdvice"/>  <!-- loggerAOP 매서드 -->
+		</aop:aspect>
+	</aop:config>
+			
+	<bean id="student" class="com.kbfg.digi.Student">
+		<property name="name" value="홍길동"/>
+		<property name="age" value="10"/>
+		<property name="gradeNum" value="3"/>
+		<property name="classNum" value="5"/>
+	</bean>
+	<bean id="worker" class="com.kbfg.digi.Worker">
+		<property name="name" value="홍길순"/>
+		<property name="age" value="35"/>
+		<property name="job" value="개발자"/>
+	</bean>
+</beans>

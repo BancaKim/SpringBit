@@ -1,0 +1,37 @@
+package com.javalec.springMVCBoard.command;
+
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
+
+import com.javalec.springMVCBoard.dao.BDao;
+import com.javalec.springMVCBoard.dao.IDao;
+import com.javalec.springMVCBoard.dto.BDto;
+
+public class BContentCommand implements BCommand {
+
+	@Autowired
+	private SqlSession sqlSession;
+
+	@Override
+	public void execute(Model model) {
+
+		IDao idao = sqlSession.getMapper(IDao.class);
+
+		Map<String, Object> map = model.asMap();
+		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		String bId = request.getParameter("bId");
+		
+//		BDao dao = new BDao();
+//		BDto dto = dao.contentView(bId);
+		
+		idao.upHit(bId);
+		model.addAttribute("content_view", idao.contentView(bId));
+		
+	}
+
+}

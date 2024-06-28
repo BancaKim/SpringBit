@@ -1,0 +1,12 @@
+package com.javalec.springMVCBoard.dao;
+
+import java.util.ArrayList;
+
+import com.javalec.springMVCBoard.dto.BDto;
+
+public interface IDao {
+	public void write(final String bName, final String bTitle, final String bContent);
+	public ArrayList<BDto> list();
+	public BDto contentView(String strID);
+	public void modify(final String bId, final String bName, final String bTitle, final String bContent)
+}

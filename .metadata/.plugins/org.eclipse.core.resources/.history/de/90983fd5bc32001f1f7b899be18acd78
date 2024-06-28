@@ -1,0 +1,40 @@
+package com.javalec.springMVCBoard.command;
+
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
+
+import com.javalec.springMVCBoard.dao.IDao;
+import com.javalec.springMVCBoard.util.Constant;
+
+@Service
+public class BReplyViewCommand implements BCommand {
+	
+	private final SqlSession sqlSession;
+	
+	public BReplyViewCommand(SqlSession sqlSession) {
+		super();
+		this.sqlSession = sqlSession;
+	}
+
+	@Override
+	public void execute(Model model) {
+		this.sqlSession  = Constant.sqlSession;
+		IDao idao = sqlSession.getMapper(IDao.class);
+		
+		Map<String, Object> map = model.asMap();
+		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		int bId = Integer.parseInt(request.getParameter("bId"));
+		
+//		BDao dao = new BDao();
+//		BDto dto = dao.reply_view(bId);
+		
+		model.addAttribute("reply_view", idao.reply_view(bId));
+		
+	}
+
+}

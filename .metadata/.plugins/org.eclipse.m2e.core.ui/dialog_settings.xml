@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.m2e.core.pom.overview">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+	<section name="MavenProjectImportWizardPage">
+		<list key="rootDirectory">
+			<item value="C:\Users\BIT\Downloads\mybatisexam01\spring_28_1_ex1_springex"/>
+			<item value="C:\Users\BIT\Downloads\source\springMVC_STS\project\10장\BookRentalPtj"/>
+			<item value="C:\Users\BIT\Downloads\게시판2\spring_21_1_ex1_srpingex"/>
+			<item value="C:\Users\BIT\Documents\Spring_exam\0618JDBC_ex"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+</section>

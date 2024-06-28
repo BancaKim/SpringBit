@@ -1,0 +1,33 @@
+package com.javalec.springMVCBoard.command;
+
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
+
+import com.javalec.springMVCBoard.dao.IDao;
+import com.javalec.springMVCBoard.util.Constant;
+
+public class BDeleteCommand implements BCommand {
+	
+	SqlSession sqlSession;
+	
+	@Override
+	public void execute(Model model) {
+		this.sqlSession  = Constant.sqlSession;
+		IDao idao = sqlSession.getMapper(IDao.class);
+		
+		Map<String, Object> map = model.asMap();
+		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		
+		String bId = Integer.parseInt(request.getParameter("bId"));
+//		BDao dao = new BDao();
+//		dao.delete(bId);
+		idao.delete(bId);
+		
+	}
+
+}

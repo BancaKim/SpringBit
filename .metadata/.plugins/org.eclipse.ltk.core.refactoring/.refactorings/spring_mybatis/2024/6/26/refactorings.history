@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;spring_mybatis/src/main/java/com/javalec/spring_mybatis/dao/mapper/IDAO.xml&apos; to &apos;IDao.xml&apos;" description="Rename resource &apos;IDAO.xml&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/java/com/javalec/spring_mybatis/dao/mapper/IDAO.xml" name="IDao.xml" stamp="1719278202599" updateReferences="true"/>
+</session>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<bean id="student3" class="com.kbfg.digi.Student">
+	<constructor-arg>
+		<value>홍길자</value>
+	</constructor-arg>
+	<constructor-arg>
+		<list>
+			<value>코딩</value>
+			<value>여행</value>
+		</list>
+	</constructor-arg>
+</bean>
+
+<!-- <bean id="family" class="com.kbfg.digi.Family">
+	<constructor-arg>
+		<value>홍아빠</value>
+	</constructor-arg>
+	<constructor-arg>
+		<value>홍엄마</value>
+	</constructor-arg>
+	<constructor-arg>
+		<value>홍누나</value>
+	</constructor-arg>
+	<constructor-arg>
+		<value>홍오빠</value>
+	</constructor-arg>
+</bean> -->
+</beans>

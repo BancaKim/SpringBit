@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<bean id="student" class="com.kbstar.digi.Student">
+	<property name="name" value ="홍길동"/>
+	<property name="age" value="10살"/>
+	<property name="gradeNum" value="3학년"/>
+	<property name="classNum" value="20번"/>
+</bean>
+
+<bean id="studentInfo" class="com.kbstar.digi.StudentInfo">
+	<property name = "student">
+		<ref bean="student"/>
+	</property>
+</bean>
+
+<bean id="student2" class="com.kbstar.digi.Student">
+	<property name="name" value ="홍길동"/>
+	<property name="age" value="9살"/>
+	<property name="gradeNum" value="2학년"/>
+	<property name="classNum" value="10번"/>
+</bean>
+
+
+</beans>
